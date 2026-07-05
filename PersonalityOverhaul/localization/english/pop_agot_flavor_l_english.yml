@@ -1,38 +1,37 @@
-﻿l_english:
- # --- Feature 1 & 2: Trait Lockouts & Boardroom Bullying ---
- pop_lockout_compassionate_reason: "The [[custom:image=pop_icons/signal_med.png]][[size=4]] Compassionate Nature's Conscience cannot tolerate such cruelty! Ah, sweet one. You lack even the coldness of a Tywin Lannister. You must spend a #Y Willpower Point#! to force this action."
- pop_lockout_craven_reason: "The [[custom:image=pop_icons/lock_materials_resources.png]][[size=4]] Terror grips your chest, stronger than a direwolf's howl. Your spine fails you. You must spend a #Y Willpower Point#! to force yourself to face this hazard."
+l_english:
+  # --- Feature 1 & 2: Trait Lockouts & Boardroom Bullying ---
+  pop_lockout_compassionate_reason: "The [[custom:image=pop_icons/signal_med.png]][[size=4]] Compassionate Nature's Conscience cannot tolerate such cruelty! Ah, sweet one. You lack even the coldness..."
+  pop_lockout_craven_reason: "The [[custom:image=pop_icons/lock_materials_resources.png]][[size=4]] Terror grips your chest, stronger than a direwolf's howl. Your spine fails you. You must spend a..."
 
- pop_stare_down_interaction: "[[custom:image=pop_icons/skill_icons_engineer.png]][[size=4]] Project Sovereign Terror"
- pop_stare_down_interaction_desc: "[[[custom:image=pop_icons/skill_icons_soldier_rank.png]][[size=4]] Leverage your dominating physical presence or dragon-backed aura to break a subordinate, mimicking the absolute authority of Aegon the Conqueror and the ancient dragons of the First Men."
- pop_stare_down_success_toast: "[[custom:image=pop_icons/popular_2.png]][[size=4]] The target quails under your gaze! You fold it like a broken house in the Red Keep. Your political Leverage over them tightens utterly."
- pop_stare_down_fizzled_toast: "[[custom:image=pop_icons/popular_3.png]][[size=4]] The target remains completely unbothered by your theatrics, proving as unyielding as the Wall and the ancient silences of the Night's Watch. No leverage was gained."
+  pop_stare_down_interaction: "[[custom:image=pop_icons/skill_icons_engineer.png]][[size=4]] Project Sovereign Terror"
+  pop_stare_down_interaction_desc: "[[custom:image=pop_icons/skill_icons_soldier_rank.png]][[size=4]] Leverage your dominating physical presence or dragon-backed aura to break a subordinate, mimick..."
+  pop_stare_down_success_toast: "[[custom:image=pop_icons/popular_2.png]][[size=4]] The target quails under your gaze! You fold it like a broken house in the Red Keep. Your political Leverage over t..."
+  pop_stare_down_fizzled_toast: "[[custom:image=pop_icons/popular_3.png]][[size=4]] The target remains completely unbothered by your theatrics, proving as unyielding as the Wall and the ancient sile..."
 
- # --- Feature 7, 9 & 14: Small Council & Regent Contests ---
- pop_regency_contest.0001.t: "[[custom:image=pop_icons/skill_icons_ambition.png]][[size=4]] The Jockeying for the Hand's Clasp"
- pop_regency_contest.0001.d: "[[[custom:image=pop_icons/skill_icons_war.png]][[size=4]] With the Sovereign unable to wield true executive authority, a bitter political campaign has fractured the Red Keep itself. Lords, Maesters, and the earliest range of Spymasters clash over who will claim the Hand's seal and direct the crown's tokens.\n\n[original_size]To the victors belong the stronger claims."
- pop_regency_contest.0001.a: "[skill_icons_character_military_rank.png]\n Blood must guide the realm. Confirm our closest dynastic relative as Regent."
- pop_regency_contest.0001.b: "[skill_icons_character_education_icon.png]\n Appoint our most trusted Small Council administrator to govern the Iron Throne."
- pop_memory_sidelined: "[[custom:image=pop_icons/skill_icons_battle.png]][[size=4]] Sidelined in the Great Game"
+  # --- Feature 7, 9 & 14: Small Council & Regent Contests ---
+  pop_regency_contest.0001.t: "[[custom:image=pop_icons/skill_icons_ambition.png]][[size=4]] The Jockeying for the Hand's Clasp"
+  pop_regency_contest.0001.d: "[[custom:image=pop_icons/skill_icons_war.png]][[size=4]] With the Sovereign unable to wield true executive authority, a bitter political campaign has fractured the R..."
+  pop_regency_contest.0001.a: "[[custom:image=pop_icons/skill_icons_character_military_rank.png]] Blood must guide the realm. Confirm our closest dynastic relative as Regent."
+  pop_regency_contest.0001.b: "[[custom:image=pop_icons/skill_icons_character_education_icon.png]] Appoint our most trusted Small Council administrator to govern the Iron Throne."
+  pop_memory_sidelined: "[[custom:image=pop_icons/skill_icons_battle.png]][[size=4]] Sidelined in the Great Game"
 
- pop_cradle_suppression_tier_1_tooltip: "[skill_icons_war.png]You are a mere babe in swaddling clothes. The Grand Maester and the Small Council rule the Seven Kingdoms while you possess no conscious awareness of the realm like a farm hand at Casterly Rock."
- pop_cradle_suppression_tier_2_tooltip: "[skill_icons_jesters.png]You are a young squire or highborn ward. While you can participate in education events to shape your traits, the Iron Throne is fully managed by your Regent. The Summer Lands have much to handle while you tweet in the Tourney field."
+  pop_cradle_suppression_tier_1_tooltip: "[[custom:image=pop_icons/skill_icons_war.png]] You are a mere babe in swaddling clothes. The Grand Maester and the Small Council rule the Seven Kingdoms while you possess no conscio..."
+  pop_cradle_suppression_tier_2_tooltip: "[[custom:image=pop_icons/skill_icons_jesters.png]] You are a young squire or highborn ward. While you can participate in education events to shape your traits, the Iron Throne is fu..."
 
- # --- Feature 8: Battlefield Betrayals (Blackfyre/Mega-War Style) ---
- pop_defector_rebel_stack: "[skill_icons_character_war.png]Turncoat Host"
- pop_commander_events.0001.t: "[skill_icons_soldier_rank.png]A Bitter Turning of the Tide"
- pop_commander_events.0001.d: "[skill_icons_war_icon.png]The banners flicker in the wind, but your commander's eyes hold no loyalty to you. Citing your empty treasury, your perceived cowardice, or secret whispers from a rival lord, they turn their blade against you on the eve of battle. A true Lannister would never fall for such nonsense!"
+  # --- Feature 8: Battlefield Betrayals (Blackfyre/Mega-War Style) ---
+  pop_defector_rebel_stack: "[[custom:image=pop_icons/skill_icons_character_war.png]] Turncoat Host"
+  pop_commander_events.0001.t: "[[custom:image=pop_icons/skill_icons_soldier_rank.png]] A Bitter Turning of the Tide"
+  pop_commander_events.0001.d: "[[custom:image=pop_icons/skill_icons_war_icon.png]] The banners flicker in the wind, but your commander's eyes hold no loyalty to you. Citing your empty treasury, your perceived cowardice, or..."
 
- # --- Feature 19: Harrenhal & Red Keep Court Atmospheres ---
- pop_modifier_cruel_court: "[skill_icons_character_death_knight.png]Atmosphere of Harrenhal"
- pop_modifier_cruel_court_desc: "This court is dominated by cold, sadistic personalities. Compliance through raw fear is heightened, but internal murder conspiracies gather strength faster than a shadow in the night. A true Bolton would be proud."
- pop_modifier_scheming_court: "[skill_icons_character_blood_mage.png]Atmosphere of King's Landing"
- pop_modifier_scheming_court_desc: "Whispers and spiders rule these halls. Intrigues are deadlier, lies spread like wildfire, and truth is treated as a luxury the Great Houses cannot afford. Theart of war and intrigue reigns supreme."
+  # --- Feature 19: Harrenhal & Red Keep Court Atmospheres ---
+  pop_modifier_cruel_court: "[[custom:image=pop_icons/skill_icons_character_death_knight.png]] Atmosphere of Harrenhal"
+  pop_modifier_cruel_court_desc: "This court is dominated by cold, sadistic personalities. Compliance through raw fear is heightened, but internal murder conspiracies gather strength faster than a..."
+  pop_modifier_scheming_court: "[[custom:image=pop_icons/skill_icons_character_blood_mage.png]] Atmosphere of King's Landing"
+  pop_modifier_scheming_court_desc: "Whispers and spiders rule these halls. Intrigues are deadlier, lies spread like wildfire, and truth is treated as a luxury the Great Houses cannot afford. Thear..."
 
- # --- Feature 25: The Last Words ---
- pop_deathbed_events.0001.t: "[skill_icons_character_military_rank.png]The Raven's Final Flight"
- pop_deathbed_events.0001.d: "[skill_icons_jesters.png]As the light diminshes in the old lord's eyes like the Red Star falling, they reach out with a trembling hand. The weight of centuries of dynastic blood feuds hangs heavily in the silent Red Keep room."
- pop_deathbed_events.0001.a: "[skill_icons_character_philosopher.png]Listen to their final confession. Absolve our house's dynamic debts and sanctions."
- pop_deathbed_events.0001.b: "[skill_icons_character_merchant.png]Their final words are nothing but pure spite. A curse upon our line that all our lands shall bleed for!"
- pop_memory_cursed_on_death: "[skill_icons_character_wizard.png]Cursed by a Dying Lord"
- l_english:
+  # --- Feature 25: The Last Words ---
+  pop_deathbed_events.0001.t: "[[custom:image=pop_icons/skill_icons_character_military_rank.png]] The Raven's Final Flight"
+  pop_deathbed_events.0001.d: "[[custom:image=pop_icons/skill_icons_jesters.png]] As the light diminshes in the old lord's eyes like the Red Star falling, they reach out with a trembling hand. The weight of centuries of dyn..."
+  pop_deathbed_events.0001.a: "[[custom:image=pop_icons/skill_icons_character_philosopher.png]] Listen to their final confession. Absolve our house's dynamic debts and sanctions."
+  pop_deathbed_events.0001.b: "[[custom:image=pop_icons/skill_icons_character_merchant.png]] Their final words are nothing but pure spite. A curse upon our line that all our lands shall bleed for!"
+  pop_memory_cursed_on_death: "[[custom:image=pop_icons/skill_icons_character_wizard.png]] Cursed by a Dying Lord"

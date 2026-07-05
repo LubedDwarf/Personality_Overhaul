@@ -1,4 +1,4 @@
-﻿pop_hijack_council_mandate_interaction = {
+pop_hijack_council_mandate_interaction = {
 	category = interaction_category_pop_intrigue
 	desc = pop_hijack_council_mandate_interaction_desc
 
@@ -19,6 +19,7 @@
 		}
 		# leverage must be ≥ 40
 		has_variable = pop_leverage_over_recipient
+		check_variable = { name = pop_leverage_over_recipient value >= 40 }
 	}
 
 	# ------------------------------------------------------------------

@@ -1,4 +1,4 @@
-﻿pop_stare_down_interaction = {
+pop_stare_down_interaction = {
 	category = interaction_category_diplomacy
 	desc = pop_stare_down_interaction_desc
 
@@ -48,9 +48,9 @@
 			}
 			scope:recipient = {
 				pop_record_confrontation_memory_on_root = yes
+				pop_modify_leverage_recipient = { VALUE = -10 }
 			}
 			scope:actor = {
-				pop_modify_leverage_recipient = { VALUE = -10 }
 				add_stress = 20
 			}
 		}

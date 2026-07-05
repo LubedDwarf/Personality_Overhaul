@@ -1,4 +1,4 @@
-﻿# =================================================================
+# =================================================================
 # DYNAMIC ARCHETYPE SLIDING SCALES (Trait + AI Value Integration)
 # =================================================================
 
@@ -124,8 +124,10 @@ pop_calculated_legitimacy_opinion_value = {
 	value = 0
 	if = {
 		limit = {
-			not = { exists = scope:target }
-			not = { scope:target = { is_alive = yes } }
+			or = {
+				not = { exists = scope:target }
+				scope:target = { is_alive = no }
+			}
 		}
 		value = 0
 	}
@@ -152,8 +154,10 @@ pop_calculated_piety_opinion_value = {
 	value = 0
 	if = {
 		limit = {
-			not = { exists = scope:target }
-			not = { scope:target = { is_alive = yes } }
+			or = {
+				not = { exists = scope:target }
+				scope:target = { is_alive = no }
+			}
 		}
 		value = 0
 	}
@@ -177,8 +181,10 @@ pop_calculated_prestige_opinion_value = {
 	value = 0
 	if = {
 		limit = {
-			not = { exists = scope:target }
-			not = { scope:target = { is_alive = yes } }
+			or = {
+				not = { exists = scope:target }
+				scope:target = { is_alive = no }
+			}
 		}
 		value = 0
 	}

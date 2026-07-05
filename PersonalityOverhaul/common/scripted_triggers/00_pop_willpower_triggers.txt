@@ -1,0 +1,23 @@
+﻿pop_can_execute_merciless_action = {
+	custom_description = {
+		text = "pop_lockout_compassionate_reason"
+		subject = root
+
+		trigger_if = {
+			limit = { has_trait = compassionate }
+			has_variable = pop_willpower_points
+		}
+	}
+}
+
+pop_can_execute_hazardous_action = {
+	custom_description = {
+		text = "pop_lockout_craven_reason"
+		subject = root
+
+		trigger_if = {
+			limit = { has_trait = craven }
+			has_variable = pop_willpower_points
+		}
+	}
+}

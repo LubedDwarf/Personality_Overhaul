@@ -1,0 +1,5 @@
+﻿l_english:
+ pop_deathbed_events.0001.t: "Deathbed Confession"
+ pop_deathbed_events.0001.d: "A dying lord reveals a secret."
+ pop_deathbed_events.0001.a: "Confess"
+ pop_deathbed_events.0001.b: "Curse"

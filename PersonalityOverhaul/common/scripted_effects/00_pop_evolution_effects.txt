@@ -1,0 +1,31 @@
+﻿pop_evaluate_personality_evolution_callous_effect = {
+	if = {
+		limit = {
+			has_variable = pop_consecutive_trait_defiance
+			has_trait = compassionate
+		}
+		remove_trait = compassionate
+		add_trait	= callous
+
+		trigger_event = { id = pop_evolution_events.0001 }
+
+		set_variable = { name = pop_consecutive_trait_defiance value = 0 }
+		change_variable = { name = pop_personality_integrity_score add = -25 }
+	}
+}
+
+pop_evaluate_personality_evolution_craven_effect = {
+	if = {
+		limit = {
+			has_variable = pop_consecutive_trait_defiance
+			has_trait = brave
+		}
+		remove_trait = brave
+		add_trait	= craven
+
+		trigger_event = { id = pop_evolution_events.0002 }
+
+		set_variable = { name = pop_consecutive_trait_defiance value = 0 }
+		change_variable = { name = pop_personality_integrity_score add = -25 }
+	}
+}

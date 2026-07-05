@@ -1,0 +1,16 @@
+﻿namespace = pop_trial_events
+
+pop_trial_events.0001 = {
+	type = character_event
+	title = pop_trial_events.0001.t
+	desc  = pop_trial_events.0001.d
+	theme = mental_break
+	left_portrait = root
+
+	option = {
+		name = pop_trial_events.0001.a
+		#remove_tyranny_justification = yes (AGOT-specific)
+		add_prestige = -200
+		change_variable = { name = pop_reputation_coward add = 25 }
+	}
+}

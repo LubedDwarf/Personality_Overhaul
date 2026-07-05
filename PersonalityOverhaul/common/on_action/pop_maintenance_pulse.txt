@@ -1,0 +1,15 @@
+﻿pop_maintenance_pulse = {
+	effect = {
+		every_living_character = {
+			limit = {
+				is_landed = yes
+				has_variable = pop_consecutive_trait_defiance
+			}
+			change_variable = {
+				name = pop_consecutive_trait_defiance
+				add = -1
+			}
+			change_variable = { name = pop_consecutive_trait_defiance min = 0 }
+		}
+	}
+}

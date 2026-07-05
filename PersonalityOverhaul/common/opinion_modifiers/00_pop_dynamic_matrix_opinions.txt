@@ -1,0 +1,11 @@
+﻿# =================================================================
+# SYSTEM OPINION STORAGE BLOCKS
+# =================================================================
+
+pop_friends_rival_dislike = { opinion = -20 duration = { days = 365 } }
+pop_enemys_friend_distrust = { opinion = -15 duration = { days = 365 } }
+pop_shared_hatred_alignment = { opinion = 25 duration = { days = 365 } }
+
+pop_dynamic_ruler_legitimacy_opinion = { opinion = pop_calculated_legitimacy_opinion_value min = -100 max = 100 }
+pop_dynamic_ruler_piety_opinion = { opinion = pop_calculated_piety_opinion_value min = -100 max = 100 }
+pop_dynamic_ruler_prestige_opinion = { opinion = pop_calculated_prestige_opinion_value min = -100 max = 100 }

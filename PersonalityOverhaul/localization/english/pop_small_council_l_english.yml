@@ -1,0 +1,9 @@
+﻿l_english:
+ pop_hijack_council_mandate_interaction: "Hijack Council Mandate"
+ pop_hijack_council_mandate_interaction_desc: "Leverage your administrative position and deep personal psychological hold over the monarch to bypass the crown's seal and execute policy autonomously."
+ pop_small_council_events.0001.t: "Council Overrules Decree"
+ pop_small_council_events.0001.d: "Your council has voted to overturn your decree."
+ pop_small_council_events.0001.a: "Yield"
+ pop_small_council_events.0001.b: "Defy"
+ pop_small_council_events.0001.a.t: "You reluctantly sign the papers."
+ pop_small_council_events.0001.b.t: "You stand your ground."

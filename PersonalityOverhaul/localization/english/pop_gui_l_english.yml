@@ -1,0 +1,3 @@
+﻿l_english:
+ POP_WILLPOWER_GUI_TRACKER_LABEL: "Mental Willpower"
+ POP_WILLPOWER_GUI_TOOLTIP: "#T Personality Willpower Points#!\nReflects your character's remaining strategic mental stamina.\n\nWhen choices are locked due to your core traits (e.g., being Craven or Compassionate), you can spend a #Y Willpower Point#! to force your mind to endure the choice anyway.\n\n#W Accumulating too much consecutive trait defiance without points breaks your psychological integrity structure over time!#!"

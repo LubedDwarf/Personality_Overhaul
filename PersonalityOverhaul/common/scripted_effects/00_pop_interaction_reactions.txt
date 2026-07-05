@@ -1,0 +1,36 @@
+﻿pop_execute_interaction_reaction_stare_down = {
+	if = {
+		limit = {
+			exists = scope:recipient
+		}
+
+		scope:recipient = {
+			if = {
+				limit = { has_trait = craven }
+				root = { pop_modify_leverage_recipient = { VALUE = 20 } }
+				pop_record_humiliation_memory_on_recipient = yes
+				add_stress = 15
+				# Fixed: Converted raw variable setter assignments to explicit database flags
+				add_character_flag = pop_recently_flinched
+			}
+
+			else_if = {
+				limit = {
+					or = {
+						has_trait = brave
+						has_trait = wrathful
+					}
+				}
+				root = { pop_modify_leverage_recipient = { VALUE = -15 } }
+				pop_record_confrontation_memory_on_root = yes
+				add_stress = 20
+				add_character_flag = pop_openly_escalated
+			}
+
+			else = {
+				add_stress = 10
+				add_character_flag = pop_escalation_fizzled
+			}
+		}
+	}
+}

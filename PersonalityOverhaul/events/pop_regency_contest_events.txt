@@ -1,0 +1,51 @@
+﻿namespace = pop_regency_contest
+
+pop_regency_contest.0001 = {
+	type = character_event
+	title = pop_regency_contest.0001.t
+	desc  = pop_regency_contest.0001.d
+	theme = "intrigue"
+	left_portrait = root
+
+	trigger = {
+		is_child = yes
+		has_regency_active = no
+	}
+
+	immediate = {
+		# Identify the primary contenders using existing mod counters
+		set_context_card_claimants_effect = yes
+	}
+
+	# Option A - Back the Legal Guardian / Closest Relative (Conservative Path)
+	option = {
+		name = pop_regency_contest.0001.a
+		trigger = { exists = scope:relative_claimant }
+	
+scope:relative_claimant = {
+			pop_initialize_regency_tokens = { REGENT = this }
+		}
+
+		# Sidelined ambitious councilors log a grudge memory
+		scope:ambitious_councilor = {
+			pop_record_historic_memory = { VICTIM = root TYPE = memory_sidelined SEVERITY = 2 PUBLIC = yes }
+			pop_modify_leverage = { TARGET = root CHANGE = 15 }
+		}
+	}
+
+	# Option B - Empower a Competent Councilor (Technocratic / Paid-Off Path)
+	option = {
+		name = pop_regency_contest.0001.b
+		trigger = {
+			exists = scope:ambitious_councilor
+			scope:ambitious_councilor = { has_variable = pop_trusted_service }
+		}
+	
+scope:ambitious_councilor = {
+			pop_initialize_regency_tokens = { REGENT = this }
+		}
+
+		# Root ruler suffers severe legacy friction as traditionalist family lines recoil
+		change_variable = { name = pop_legacy_friction value = 25 }
+	}
+}

@@ -1,0 +1,3 @@
+﻿# Stubs for AGOT-specific scripted effects (no-op in vanilla CK3)
+pop_modify_leverage = { }
+pop_record_historic_memory = { }

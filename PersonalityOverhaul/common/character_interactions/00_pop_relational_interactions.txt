@@ -1,0 +1,129 @@
+﻿# =================================================================
+# COMPREHENSIVE INTERACTION SYSTEM MATRIX (With Interaction Guarding)
+# =================================================================
+
+pop_propose_undertaking_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_propose_undertaking_interaction_desc
+	is_shown = { is_alive = yes }
+	is_valid_target = { scope:recipient = { is_alive = yes not = { this = root } } }
+	on_accept = {
+		root = { save_scope_as = enterprise_initiator }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.1001 } }
+	}
+}
+
+pop_offer_private_pact_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_offer_private_pact_interaction_desc
+	is_shown = { is_alive = yes }
+	is_valid_target = { scope:recipient = { is_alive = yes not = { this = root } } }
+	on_accept = {
+		root = { save_scope_as = pact_offerer }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.2001 } }
+	}
+}
+
+pop_public_appraisal_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_public_appraisal_interaction_desc
+	is_shown = { is_alive = yes }
+	is_valid_target = { scope:recipient = { is_alive = yes not = { this = root } } }
+	on_accept = {
+		root = { save_scope_as = court_appraiser }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.3001 } }
+	}
+}
+
+pop_proxy_takeover_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_proxy_takeover_interaction_desc
+	is_shown = { is_alive = yes }
+	is_valid_target = { scope:recipient = { is_alive = yes not = { this = root } } }
+	on_accept = {
+		root = { save_scope_as = shadow_master }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.4001 } }
+	}
+}
+
+pop_propose_obligation_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_propose_obligation_interaction_desc
+	is_shown = { is_alive = yes }
+	is_valid_target = { scope:recipient = { is_alive = yes not = { this = root } } }
+	on_accept = {
+		root = { save_scope_as = obligation_proposer }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.5001 } }
+	}
+}
+
+pop_confide_vulnerability_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_confide_vulnerability_interaction_desc
+	is_shown = {
+		is_alive = yes
+		scope:recipient = {
+			is_alive = yes
+			or = { has_relation_friend = root has_relation_lover = root is_spouse_of = root }
+		}
+	}
+	is_valid_target = { scope:recipient = { is_alive = yes } }
+	on_accept = {
+		root = { save_scope_as = vulnerability_sharer }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.6001 } }
+	}
+}
+
+# 7. Confront Relational Friction (GUARDED BY TIMIDITY & STATUS TERROR)
+pop_confront_friction_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_confront_friction_interaction_desc
+	is_shown = { is_alive = yes has_relation_rival = scope:recipient }
+	
+	is_valid_target = {
+		scope:recipient = { is_alive = yes }
+		custom_description = {
+			text = "pop_interaction_blocked_by_sheer_terror_tooltip"
+			subject = root
+			object = scope:recipient
+			not = {
+				root = { pop_timid_score > 30 }
+				root = { pop_calculated_prestige_opinion_value < -10 } 
+			}
+		}
+	}
+	on_accept = {
+		root = { save_scope_as = friction_confronter }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.7001 } }
+	}
+}
+
+pop_coordinate_feud_strike_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_coordinate_feud_strike_interaction_desc
+	is_shown = {
+		is_alive = yes
+		has_active_house_feud = yes
+		scope:recipient = { is_alive = yes is_house_member_of = root not = { this = root } }
+	}
+	is_valid_target = { scope:recipient = { is_alive = yes } }
+	on_accept = {
+		root = { save_scope_as = strike_instigator }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.8001 } }
+	}
+}
+
+pop_secret_blood_truce_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_secret_blood_truce_interaction_desc
+	is_shown = {
+		is_alive = yes
+		has_active_house_feud = yes
+		scope:recipient = { is_alive = yes is_house_rival_of = root }
+	}
+	is_valid_target = { scope:recipient = { is_alive = yes } }
+	on_accept = {
+		root = { save_scope_as = truce_seeker }
+		scope:recipient = { trigger_event = { id = pop_dynamic_events.9001 } }
+	}
+}

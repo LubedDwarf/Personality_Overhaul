@@ -1,0 +1,39 @@
+﻿namespace = pop_commander_events
+
+# Commander loyalty evaluation - tracks commander defection risk
+pop_commander_events.0001 = {
+    type = character_event
+    title = pop_commander_events.0001.t
+    desc = pop_commander_events.0001.d
+    theme = "martial"
+
+    left_portrait = root
+
+    trigger = {
+        is_in_war = yes
+        has_character_flag = pop_issued_ultimatum = no
+    }
+
+    immediate = {
+        # Flip condemnation across the court
+        every_living_character = {
+            limit = {
+                is_vassal_or_courtier_of = root
+                not = { has_character_flag = pop_commander_defector_revealed }
+            }
+            root = {
+                add_character_flag = pop_commander_defector_revealed
+                add_stress = 15
+            }
+        }
+    }
+
+    option = {
+        name = pop_commander_events.0001.a
+        add_character_flag = {
+            flag = pop_commander_defection_completed
+            years = 30
+        }
+        message = "commander_defection_reported"
+    }
+}

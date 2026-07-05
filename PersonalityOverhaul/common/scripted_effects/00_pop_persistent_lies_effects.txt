@@ -1,0 +1,19 @@
+﻿pop_fabricate_persistent_lie = {
+	if = {
+		limit = {
+			exists = scope:recipient
+		}
+
+		scope:recipient = {
+			# Fixed: Wrapped setup checks correctly inside conditional statements
+			if = {
+				limit = { not = { has_variable = pop_active_lies_count } }
+				set_variable = { name = pop_active_lies_count value = 0 }
+			}
+
+			set_variable = { name = pop_lie_type_poison_author value = root }
+			set_variable = { name = pop_lie_type_poison_credibility value = 35 }
+			change_variable = { name = pop_active_lies_count add = 1 }
+		}
+	}
+}

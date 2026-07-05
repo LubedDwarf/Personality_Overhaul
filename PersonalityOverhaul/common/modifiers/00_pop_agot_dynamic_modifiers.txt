@@ -1,0 +1,23 @@
+﻿# AGOT-specific modifier definitions - integrated into the main modifiers system
+# These modifiers provide AGOT-like mechanics for dragon riders and nights watch members
+# rather than being separate definition files to avoid parsing warnings
+
+# The following modifiers are defined inline in other relevant files:
+# - pop_agot_dragon_leverage_modifier is used in character interaction reactions
+# - pop_agot_nightswatch_restraint_modifier is applied to night's watch/maester characters
+# - These definitions ensure proper integration without unused modifier warnings
+
+# AGOT dragon rider scaling modifier - applies to powerful draconic characters
+# Dragon riders have reduced leverage loss and increased leverage gain
+pop_modifier_agot_dragon_leverage = {
+    character_leverage_loss_mult = 0.5
+    character_leverage_gain_mult = 1.5
+    willpower_point_cost_modifier = -1
+}
+
+# Night's Watch/Maester restraint modifier
+# Members of these orders cannot utilize certain interactions that conflict with their vows
+pop_modifier_agot_nightswatch_restraint = {
+    gold_appeal_acceptance_modifier = -100
+    title_appeal_acceptance_modifier = -100
+}

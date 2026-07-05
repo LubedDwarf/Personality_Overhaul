@@ -1,0 +1,25 @@
+﻿# Hooks cleanly into existing vanilla lifetime calculation vectors
+on_character_reaches_adult = {
+	on_actions = {
+		pop_check_cognizance_milestone_pulse
+	}
+}
+
+pop_check_cognizance_milestone_pulse = {
+	effect = {
+		if = {
+			limit = {
+				age = 6
+			}
+			# Minor transition out of complete blackout into trait education layers
+			trigger_event = { id = pop_cradle_events.0001 }
+		}
+		if = {
+			limit = {
+				age = 13
+			}
+			# Major transition unlocking full geopolitical realm control
+			trigger_event = { id = pop_cradle_events.0002 }
+		}
+	}
+}

@@ -1,0 +1,7 @@
+﻿l_english:
+ pop_stare_down_interaction: "Stare Down"
+ pop_stare_down_interaction_desc: "Leverage your dominating physical presence or status to project authority over a subordinate, attempting to force deep submission."
+ pop_stare_down_success_toast: "The target quails under your gaze. Your social Leverage over them tightens."
+ pop_stare_down_fizzled_toast: "The target remains completely unbothered, flatly refusing to engage with your theatrics. No leverage was gained."
+ pop_memory_humiliated: "Publicly Humiliated"
+ pop_memory_confronted: "Defied in Open Court"

@@ -1,0 +1,81 @@
+﻿namespace = pop_government
+
+# Core government mechanics - character interactions with state institutions
+pop_government_interaction = {
+    category = interaction_category_pop_governance
+    desc = pop_government_interaction_desc
+    
+    is_shown = {
+        # Only shown to landed characters with governing potential
+        scope:actor = {
+            is_landed = yes
+            is_alive = yes
+        }
+    }
+    
+    is_valid_target = {
+        scope:recipient = {
+            is_landed = yes
+            is_alive = yes
+        }
+    }
+    
+    on_accept = {
+        # Different government actions based on characters
+        if = {
+            limit = {
+                scope:recipient = {
+                    has_character_flag = is_monk 
+                }
+            }
+            # Religious council intervention
+            scope:recipient = {
+                set_character_flag = pope_intervention
+                add_stress = 10
+            }
+            root = {
+                pop_modify_leverage = { TARGET = scope:recipient CHANGE = 5 }
+            }
+        }
+        else = {
+            # Standard administrative action
+            scope:recipient = {
+                change_variable = { name = pop_government_influence value = 1 }
+                add_stress = 5
+            }
+            root = {
+                pop_modify_leverage = { TARGET = scope:recipient CHANGE = 10 }
+            }
+        }
+    }
+}
+
+pop_legislate_policy = {
+    category = interaction_category_pop_governance
+    desc = pop_legislate_policy_desc
+    
+    is_shown = {
+        scope:actor = {
+            has_character_flag = is_ruler
+        }
+    }
+    
+    on_accept = {
+        scope:recipient = {
+            # Apply policy changes based on acting character
+            if = {
+                limit = {
+                    scope:actor = { has_trait = ruthless }
+                }
+                # Harsh, unpopular policy
+                change_variable = { name = pop_public_favor value = -5 }
+                add_stress = 20
+            }
+            else = {
+                # Beneficial, popular policy
+                change_variable = { name = pop_public_favor value = 5 }
+                add_stress = 5
+            }
+        }
+    }
+}

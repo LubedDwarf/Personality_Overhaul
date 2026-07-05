@@ -1,0 +1,30 @@
+﻿namespace = pop_deathbed_events
+
+pop_deathbed_events.0001 = {
+	type = character_event
+	title = pop_deathbed_events.0001.t
+	desc  = pop_deathbed_events.0001.d
+	theme = intrigue
+	left_portrait = scope:dying_character
+
+	trigger = { exists = scope:dying_character }
+
+	# Option A – Full confession (remove lie)
+	option = {
+		name = pop_deathbed_events.0001.a
+		trigger = {
+			scope:dying_character = { has_variable = pop_lie_type_crime_poison_author }
+		}
+		add_character_flag = pop_deathbed_confession_revealed
+		scope:dying_character = { remove_variable = pop_lie_type_crime_poison_author }
+	}
+
+	# Option B – Curse (add permanent reputation scar)
+	option = {
+		name = pop_deathbed_events.0001.b
+		trigger = { scope:dying_character = { has_trait = sadistic } }
+		root = {
+			#pop_record_historic_memory = { VICTIM = root TYPE = memory_cursed_on_death SEVERITY = 3 PUBLIC = yes }
+		}
+	}
+}

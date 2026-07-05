@@ -1,0 +1,22 @@
+﻿# =================================================================
+# ENGINE PERFORMANCE PULSE HOOKS
+# =================================================================
+
+on_yearly_character_pulse = {
+	effect = {
+		pop_execute_network_sociology_sweep_effect = yes
+		pop_apply_dynamic_ruler_opinion_modifiers_effect = yes
+	}
+}
+
+on_vassal_gained = {
+	effect = {
+		scope:vassal = { pop_apply_dynamic_ruler_opinion_modifiers_effect = yes }
+	}
+}
+
+on_courtier_joined = {
+	effect = {
+		root = { pop_apply_dynamic_ruler_opinion_modifiers_effect = yes }
+	}
+}

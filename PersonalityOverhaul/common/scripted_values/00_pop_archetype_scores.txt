@@ -1,0 +1,195 @@
+﻿# =================================================================
+# DYNAMIC ARCHETYPE SLIDING SCALES (Trait + AI Value Integration)
+# =================================================================
+
+# 1. Resolute Score (Meets challenges head-on)
+pop_resolute_score = {
+	value = 0
+	if = { limit = { exists = ai_boldness } add = ai_boldness }
+	if = { limit = { has_trait = brave } add = 25 }
+	if = { limit = { has_trait = ambitious } add = 15 }
+	if = { limit = { has_trait = stubborn } add = 20 }
+	if = { limit = { has_trait = wrathful } add = 10 }
+	if = { limit = { has_trait = craven } subtract = 50 }
+}
+
+# 2. Compassionate Score (Prioritizes collective wellbeing)
+pop_compassionate_score = {
+	value = 0
+	if = { limit = { exists = ai_compassion } add = ai_compassion }
+	if = { limit = { has_trait = compassionate } add = 30 }
+	if = { limit = { has_trait = forgiving } add = 20 }
+	if = { limit = { has_trait = generous } add = 15 }
+	if = { limit = { has_trait = trusting } add = 10 }
+	if = { limit = { has_trait = callous } subtract = 40 }
+}
+
+# 3. Dutiful Score (Responsibility and discipline)
+pop_dutiful_score = {
+	value = 0
+	if = { limit = { exists = ai_honor } add = ai_honor }
+	if = { limit = { has_trait = diligent } add = 25 }
+	if = { limit = { has_trait = just } add = 20 }
+	if = { limit = { has_trait = temperate } add = 15 }
+	if = { limit = { has_trait = patient } add = 10 }
+	if = { limit = { has_trait = arbitrary } subtract = 40 }
+}
+
+# 4. Cunning Score (Manipulation and long-term planning)
+pop_cunning_score = {
+	value = 0
+	if = { limit = { exists = ai_honor } subtract = ai_honor }
+	if = { limit = { exists = ai_rationality } add = ai_rationality }
+	if = { limit = { has_trait = deceitful } add = 30 }
+	if = { limit = { has_trait = arbitrary } add = 20 }
+	if = { limit = { has_trait = greedy } add = 15 }
+	if = { limit = { has_trait = patient } add = 10 }
+	if = { limit = { has_trait = honest } subtract = 30 }
+}
+
+# 5. Wary Score (Caution and skepticism)
+pop_wary_score = {
+	value = 0
+	if = { limit = { exists = ai_boldness } subtract = ai_boldness }
+	if = { limit = { has_trait = paranoid } add = 30 }
+	if = { limit = { has_trait = cynical } add = 20 }
+	if = { limit = { has_trait = calm } add = 15 }
+	if = { limit = { has_trait = shy } add = 10 }
+	if = { limit = { has_trait = trusting } subtract = 30 }
+}
+
+# 6. Contemplative Score (Values understanding)
+pop_contemplative_score = {
+	value = 0
+	if = { limit = { has_trait = humble } add = 25 }
+	if = { limit = { has_trait = calm } add = 20 }
+	if = { limit = { has_trait = content } add = 20 }
+	if = { limit = { has_trait = patient } add = 15 }
+}
+
+# 7. Devoted Score (Guided by beliefs)
+pop_devoted_score = {
+	value = 0
+	if = { limit = { has_trait = zealous } add = 35 }
+	if = { limit = { has_trait = chaste } add = 15 }
+	if = { limit = { has_trait = honest } add = 15 }
+	if = { limit = { has_trait = stubborn } add = 10 }
+}
+
+# 8. Sociable Score (Connection and cooperation)
+pop_sociable_score = {
+	value = 0
+	if = { limit = { exists = ai_sociability } add = ai_sociability }
+	if = { limit = { has_trait = gregarious } add = 30 }
+	if = { limit = { has_trait = generous } add = 15 }
+	if = { limit = { has_trait = honest } add = 15 }
+	if = { limit = { has_trait = forgiving } add = 10 }
+	if = { limit = { has_trait = shy } subtract = 40 }
+}
+
+# 9. Indulgent Score (Pursues immediate desires)
+pop_indulgent_score = {
+	value = 0
+	if = { limit = { has_trait = lustful } add = 25 }
+	if = { limit = { has_trait = gluttonous } add = 25 }
+	if = { limit = { has_trait = impatient } add = 20 }
+	if = { limit = { has_trait = content } add = 10 }
+}
+
+# 10. Timid Score (Avoids confrontation)
+pop_timid_score = {
+	value = 0
+	if = { limit = { exists = ai_boldness } subtract = ai_boldness }
+	if = { limit = { has_trait = craven } add = 40 }
+	if = { limit = { has_trait = shy } add = 20 }
+	if = { limit = { has_trait = trusting } add = 10 }
+	if = { limit = { has_trait = content } add = 10 }
+	if = { limit = { has_trait = brave } subtract = 50 }
+}
+
+# 11. Erratic Score (Unpredictable, impulse-driven)
+pop_erratic_score = {
+	value = 0
+	if = { limit = { has_trait = lunatic } add = 50 }
+	if = { limit = { has_trait = arbitrary } add = 25 }
+	if = { limit = { has_trait = impatient } add = 15 }
+	if = { limit = { has_trait = paranoid } add = 10 }
+	if = { limit = { has_trait = calm } subtract = 30 }
+}
+
+# =================================================================
+# RULER STATUS MATHEMATICAL CALCULATIONS (WITH PERFORMANCE ENGINE PROTECTION)
+# =================================================================
+pop_calculated_legitimacy_opinion_value = {
+	value = 0
+	if = {
+		limit = {
+			not = { exists = scope:target }
+			not = { scope:target = { is_alive = yes } }
+		}
+		value = 0
+	}
+	if = { limit = { exists = scope:target scope:target = { is_alive = yes } }
+		if = { limit = { scope:target = { has_legitimacy_level = 5 } } add = 15 }
+		if = { limit = { scope:target = { has_legitimacy_level = 4 } } add = 5 }
+		if = { limit = { scope:target = { has_legitimacy_level = 2 } } add = -10 }
+		if = { limit = { scope:target = { has_legitimacy_level = 1 } } add = -25 }
+		if = {
+			limit = { root.pop_dutiful_score > 20 }
+			if = { limit = { scope:target = { has_legitimacy_level >= 4 } } add = 20 }
+			if = { limit = { scope:target = { has_legitimacy_level <= 2 } } subtract = 35 }
+		}
+		if = { limit = { root.pop_timid_score > 30 scope:target = { has_legitimacy_level >= 4 } } add = 30 }
+		if = {
+			limit = { root.pop_erratic_score > 25 }
+			if = { limit = { scope:target = { has_legitimacy_level <= 2 } } add = 20 }
+			if = { limit = { scope:target = { has_legitimacy_level >= 5 } } subtract = 15 }
+		}
+	}
+}
+
+pop_calculated_piety_opinion_value = {
+	value = 0
+	if = {
+		limit = {
+			not = { exists = scope:target }
+			not = { scope:target = { is_alive = yes } }
+		}
+		value = 0
+	}
+	if = { limit = { exists = scope:target scope:target = { is_alive = yes } }
+		if = { limit = { scope:target = { has_devotion_level = 5 } } add = 10 }
+		if = { limit = { scope:target = { has_devotion_level = 0 } } add = -20 }
+		if = {
+			limit = { root.pop_devoted_score > 20 }
+			if = { limit = { scope:target = { has_devotion_level = 5 } } add = 40 }
+			if = { limit = { scope:target = { has_devotion_level = 0 } } subtract = 60 }
+		}
+		if = {
+			limit = { root.pop_indulgent_score > 20 }
+			if = { limit = { scope:target = { has_devotion_level >= 4 } } subtract = 25 }
+			if = { limit = { scope:target = { has_devotion_level <= 1 } } add = 15 }
+		}
+	}
+}
+
+pop_calculated_prestige_opinion_value = {
+	value = 0
+	if = {
+		limit = {
+			not = { exists = scope:target }
+			not = { scope:target = { is_alive = yes } }
+		}
+		value = 0
+	}
+	if = { limit = { exists = scope:target scope:target = { is_alive = yes } }
+		if = { limit = { scope:target = { has_fame_level = 5 } } add = 20 }
+		if = { limit = { scope:target = { has_fame_level = 0 } } add = -15 }
+		if = {
+			limit = { root.pop_resolute_score > 25 }
+			if = { limit = { scope:target = { has_fame_level = 5 } } add = 25 }
+			if = { limit = { scope:target = { has_fame_level <= 1 } } subtract = 30 }
+		}
+		if = { limit = { root.pop_cunning_score > 30 scope:target = { has_fame_level = 5 } } subtract = 15 }
+	}
+}

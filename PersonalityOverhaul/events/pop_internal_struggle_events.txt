@@ -1,0 +1,36 @@
+﻿namespace = pop_internal_struggle
+
+pop_internal_struggle.0001 = {
+	type = character_event
+	title = pop_internal_struggle.0001.t
+	desc  = pop_internal_struggle.0001.d
+	theme = mental_break
+	left_portrait = root
+
+	trigger = {
+		has_variable = pop_consecutive_trait_defiance
+	}
+
+	# --------------------------------------------------------------
+	# Option A – Spend a Willpower point to stay true
+	# --------------------------------------------------------------
+	option = {
+		name = pop_internal_struggle.0001.a
+		trigger = {
+			has_variable = pop_willpower_points
+		}
+
+		pop_spend_willpower_point_callous = yes
+		add_stress = 15
+	}
+
+	# --------------------------------------------------------------
+	# Option B – Back down (stress, lose a defiance point)
+	# --------------------------------------------------------------
+	option = {
+		name = pop_internal_struggle.0001.b
+		change_variable = { name = pop_consecutive_trait_defiance add = -1 }
+		change_variable = { name = pop_consecutive_trait_defiance min = 0 }
+		add_stress = 40
+	}
+}

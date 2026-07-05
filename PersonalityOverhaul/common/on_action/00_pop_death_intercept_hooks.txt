@@ -1,0 +1,2 @@
+﻿# This pulse is defined in 00_pop_system_hooks.txt
+# Keep this file reserved for future unique death intercept logic

@@ -1,0 +1,88 @@
+﻿namespace = pop_evolution_events
+
+# Core evolution event framework - triggers when personality shifts occur
+pop_evolution_events.0001 = {
+    type = character_event
+    title = pop_evolution_events.0001.t
+    desc = pop_evolution_events.0001.d
+    theme = "family"
+
+    left_portrait = root
+
+    trigger = {
+        has_character_flag = pop_trait_evolution_confirmed
+    }
+
+    immediate = {
+        # Mark evolution as recorded for UI tooltips
+        set_character_flag = pop_evolution_confirmed
+    }
+
+    option = {
+        name = pop_evolution_events.0001.a
+        add_character_flag = {
+            flag = pop_trait_evolution_confirmed
+            years = 1
+        }
+        add_stress = 10
+        remove_trait = callous
+        add_trait = legendary_strategy
+    }
+}
+
+pop_evolution_events.0002 = {
+    type = character_event
+    title = pop_evolution_events.0002.t
+    desc = pop_evolution_events.0002.d
+    theme = "family"
+
+    left_portrait = root
+
+    trigger = {
+        has_character_flag = pop_trait_evolution_confirmed
+    }
+
+    immediate = {
+        set_character_flag = pop_evolution_confirmed
+    }
+
+    option = {
+        name = pop_evolution_events.0002.a
+        add_character_flag = {
+            flag = pop_trait_evolution_confirmed
+            years = 1
+        }
+        add_stress = 10
+        remove_trait = craven
+        add_trait = legendary_intrigue
+    }
+}
+
+# New evolution: Braveness conquered by Cowardice (reverse evolution)
+pop_evolution_events.0003 = {
+    type = character_event
+    title = pop_evolution_events.0003.t
+    desc = pop_evolution_events.0003.d
+    theme = "family"
+
+    left_portrait = root
+
+    trigger = {
+        has_character_flag = pop_trait_evolution_confirmed
+    }
+
+    immediate = {
+        set_character_flag = pop_evolution_confirmed
+    }
+
+    option = {
+        name = pop_evolution_events.0003.a
+        add_character_flag = {
+            flag = pop_trait_evolution_confirmed
+            years = 1
+        }
+        add_stress = 15
+        remove_trait = craven
+        add_trait = brave
+    }
+}

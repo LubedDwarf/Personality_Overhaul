@@ -1,0 +1,43 @@
+﻿pop_evaluate_court_culture_effect = {
+	if = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_duchy
+		}
+
+		# ------------------------------------------------------------------
+		# Reset scores
+		# ------------------------------------------------------------------
+		set_variable = { name = pop_court_score_cruel   value = 0 }
+		set_variable = { name = pop_court_score_scheming value = 0 }
+		set_variable = { name = pop_court_score_pious   value = 0 }
+
+		# ------------------------------------------------------------------
+		# Add points for traits
+		# ------------------------------------------------------------------
+		if = { limit = { has_trait = sadistic } } set_variable = { name = pop_court_score_cruel   value = 3 }
+		if = { limit = { has_trait = deceitful } } set_variable = { name = pop_court_score_scheming value = 3 }
+		if = { limit = { has_trait = zealous } }   set_variable = { name = pop_court_score_pious   value = 3 }
+
+		# ------------------------------------------------------------------
+		# Choose the dominant court style (trait priority: sadistic > deceitful > zealous)
+		# ------------------------------------------------------------------
+		if = {
+			limit = { has_trait = sadistic }
+			remove_character_modifier = pop_modifier_scheming_court
+			remove_character_modifier = pop_modifier_pious_court
+			add_character_modifier	= pop_modifier_cruel_court
+		}
+		else_if = {
+			limit = { has_trait = deceitful }
+			remove_character_modifier = pop_modifier_cruel_court
+			remove_character_modifier = pop_modifier_pious_court
+			add_character_modifier	= pop_modifier_scheming_court
+		}
+		else = {
+			remove_character_modifier = pop_modifier_cruel_court
+			remove_character_modifier = pop_modifier_scheming_court
+			add_character_modifier	= pop_modifier_pious_court
+		}
+	}
+}

@@ -1,0 +1,48 @@
+﻿# =================================================================
+# SOCIOLOGICAL INTERACTION & RULER EVALUATION SWEEPS
+# =================================================================
+
+pop_execute_network_sociology_sweep_effect = {
+	every_relation = {
+		type = friend
+		save_scope_as = loved_one
+		every_relation = {
+			type = rival
+			save_scope_as = targets_rival
+			root = {
+				opinion = { target = scope:loved_one value > 30 }
+				opinion = { target = scope:targets_rival value < 10 }
+				not = { has_opinion_modifier = { target = scope:targets_rival modifier = pop_friends_rival_dislike } }
+				not = { this = scope:targets_rival }
+			}
+			root = { add_opinion_modifier = { target = scope:targets_rival modifier = pop_friends_rival_dislike } }
+		}
+	}
+	every_relation = {
+		type = rival
+		save_scope_as = bitter_enemy
+		every_relation = {
+			type = friend
+			save_scope_as = enemys_confidant
+			root = {
+				opinion = { target = scope:bitter_enemy value < -30 }
+				opinion = { target = scope:enemys_confidant value < 10 }
+				not = { has_opinion_modifier = { target = scope:enemys_confidant modifier = pop_enemys_friend_distrust } }
+				not = { this = scope:enemys_confidant }
+			}
+			root = { add_opinion_modifier = { target = scope:enemys_confidant modifier = pop_enemys_friend_distrust } }
+		}
+	}
+}
+
+pop_apply_dynamic_ruler_opinion_modifiers_effect = {
+	if = {
+		limit = {
+			exists = liege
+			not = { has_opinion_modifier = { target = liege modifier = pop_dynamic_ruler_legitimacy_opinion } }
+		}
+		add_opinion_modifier = { target = liege modifier = pop_dynamic_ruler_legitimacy_opinion }
+		add_opinion_modifier = { target = liege modifier = pop_dynamic_ruler_piety_opinion }
+		add_opinion_modifier = { target = liege modifier = pop_dynamic_ruler_prestige_opinion }
+	}
+}

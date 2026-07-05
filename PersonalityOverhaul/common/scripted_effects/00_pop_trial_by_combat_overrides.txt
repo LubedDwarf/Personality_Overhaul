@@ -1,0 +1,50 @@
+﻿pop_evaluate_trial_by_combat_leverage = {
+	if = {
+		limit = {
+			exists = $ACCUSER$
+			exists = $DEFENDER$
+		}
+
+		# CASE 1 – Craven accuser flees when facing a predatory defender
+		if = {
+			limit = {
+				$ACCUSER$ = { has_trait = craven }
+				$DEFENDER$ = { pop_is_predatory_archetype = yes }
+			}
+			$ACCUSER$ = {
+				trigger_event = { id = pop_trial_events.0001 }
+				add_stress = 30
+			}
+			$DEFENDER$ = {
+				pop_record_historic_memory = {
+					VICTIM = $ACCUSER$
+					TYPE   = memory_backed_down_from_trial
+					SEVERITY = 2
+					PUBLIC = yes
+				}
+			}
+		}
+
+		# CASE 2 – Extort the champion (leverage > 60)
+		if = {
+			limit = {
+				exists = scope:designated_champion
+				$DEFENDER$ = {
+					has_variable = pop_leverage_over_scope_designated_champion
+				}
+			}
+			scope:designated_champion = {
+				add_character_flag = pop_forced_to_throw_duel
+				add_stress = 40
+			}
+			$DEFENDER$ = {
+				pop_record_historic_memory = {
+					VICTIM = scope:designated_champion
+					TYPE   = memory_extorted_champion
+					SEVERITY = 3
+					PUBLIC = no
+				}
+			}
+		}
+	}
+}

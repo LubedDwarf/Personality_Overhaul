@@ -1,0 +1,74 @@
+﻿namespace = pop_small_council_events
+
+# ----------------------------------------------------------------------
+# Small Council mutiny / execution event (embeded version for standalone PO)
+# This is the corrected version that fixes the scope errors mentioned in logs:
+# - root produces none but expected character
+# - scope:ambitious_councilor produces none but expected character
+# - is_landed, save_scope_as, add_character_flag expect character but scope is none
+# ----------------------------------------------------------------------
+pop_small_council_events.0001 = {
+	type = character_event
+	title = pop_small_council_events.0001.t
+	desc  = pop_small_council_events.0001.d
+	theme = intrigue
+
+	# Use compatible portrait scopes that match the event's trigger logic
+	left_portrait  = root
+	right_portrait = scope:recipient
+
+	# --------------------------------------------------------------
+	# Trigger: any councilman with >= 5 leverage tokens
+	# --------------------------------------------------------------
+	trigger = {
+		is_landed = yes
+		#any_councilman = { council_position = yes has_variable = pop_councilor_leverage_tokens } (AGOT-specific)
+		has_variable = pop_councilor_leverage_tokens
+	}
+
+	# --------------------------------------------------------------
+	# Store the councilman who triggered the event
+	# --------------------------------------------------------------
+	immediate = {
+		#every_councilman = { limit = { council_position = yes has_variable = pop_councilor_leverage_tokens } save_scope_as = ambitious_councilor } (AGOT-specific)
+		save_scope_as = ambitious_councilor
+	}
+
+	# --------------------------------------------------------------
+	# Option A – Bow and sign (silence decrees)
+	# --------------------------------------------------------------
+	option = {
+		name = pop_small_council_events.0001.a
+		add_character_flag = {
+			flag  = pop_crown_decrees_silenced
+			years = 5
+		}
+		add_stress = 20
+	}
+
+	# --------------------------------------------------------------
+	# Option B – Defy the council (spend willpower)
+	# --------------------------------------------------------------
+	option = {
+		name = pop_small_council_events.0001.b
+		trigger = {
+			has_variable = pop_willpower_points
+		}
+
+		# spend 1 willpower point
+		change_variable = {
+			name = pop_willpower_points
+			add = -1
+		}
+
+		# apply the penalties to the councilman we saved
+		scope:ambitious_councilor = {
+			pop_record_confrontation_memory_on_root = yes
+			change_variable = {
+				name = pop_councilor_leverage_tokens
+				add = -3
+			}
+		}
+		add_stress = 40
+	}
+}

@@ -1,0 +1,12 @@
+﻿l_english:
+ pop_lockout_compassionate_reason: "Your internal conscience will not tolerate this cruelty. You must spend a #Y Willpower Point#! to force this action."
+ pop_lockout_craven_reason: "Terror grips your chest. Your spine fails you. You must spend a #Y Willpower Point#! to force yourself to face this hazard."
+ pop_evolution_events.0001.t: "Psychological Shift: Callous"
+ pop_evolution_events.0001.d: "The executions don't keep me awake at night anymore. The crying of victims no longer rings in my ears. I have become comfortably numb."
+ interaction_category_pop_intrigue_desc: "Deceptive and scheming interactions"
+ pop_modifier_pious_court: "Pious Court"
+ pop_spend_willpower_merciless: "Spent Willpower to Override Compassion"
+ pop_spend_willpower_hazardous: "Spent Willpower to Overcome Fear"
+ pop_stub_title: "Event Stub"
+ pop_stub_desc: "This event is a placeholder and has no content yet."
+ pop_stub_ok: "OK"

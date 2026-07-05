@@ -1,0 +1,49 @@
+﻿namespace = pop_court_gossip
+
+pop_court_gossip.0001 = {
+	type = character_event
+	title = pop_court_gossip.0001.t
+	desc  = pop_court_gossip.0001.d
+	theme = intrigue
+	left_portrait = root
+
+	trigger = {
+		is_landed = yes
+		or = {
+			any_courtier = { has_trait = paranoid }
+			any_vassal = { has_trait = paranoid }
+		}
+	}
+
+	immediate = {
+		every_courtier = {
+			limit = { has_trait = paranoid }
+			save_scope_as = gossip_target
+		}
+	}
+
+	# --------------------------------------------------------------
+	# Option A – Spread the Word
+	# --------------------------------------------------------------
+	option = {
+		name = pop_court_gossip.0001.a
+		trigger = { exists = scope:gossip_target }
+
+		scope:gossip_target = {
+			pop_propagate_information_pulse = yes
+		}
+		root = { add_stress = 5 }
+	}
+
+	# --------------------------------------------------------------
+	# Option B – Keep it Quiet (use as private leverage)
+	# --------------------------------------------------------------
+	option = {
+		name = pop_court_gossip.0001.b
+		trigger = { exists = scope:gossip_target }
+
+		root = {
+			pop_modify_leverage = yes
+		}
+	}
+}

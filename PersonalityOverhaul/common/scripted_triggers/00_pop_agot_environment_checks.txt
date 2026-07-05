@@ -1,0 +1,4 @@
+﻿# Stub: AGOT mega-war check is not available in vanilla CK3
+pop_is_in_agot_mega_war_state = {
+	is_at_war = yes
+}

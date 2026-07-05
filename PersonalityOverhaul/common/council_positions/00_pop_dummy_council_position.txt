@@ -1,0 +1,5 @@
+﻿# A minimal dummy council position – it does nothing but lets "has_council_position = yes" work.
+council_position_dummy = {
+	# No duties, no skills, no AI‑behavior. It simply exists.
+	# (All other fields are optional; leaving them empty is fine.)
+}

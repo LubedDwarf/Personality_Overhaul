@@ -1,0 +1,35 @@
+﻿on_game_start = {
+	on_actions = {
+		pop_world_initialization_pulse
+	}
+}
+
+on_chronological_pulse_yearly = {
+	on_actions = {
+		pop_maintenance_pulse
+	}
+}
+
+on_character_death_early = {
+	on_actions = {
+		pop_execute_deathbed_reckoning_pulse
+	}
+}
+
+pop_execute_deathbed_reckoning_pulse = {
+	effect = {
+		every_living_character = {
+			limit = {
+				is_landed = yes
+				highest_held_title_tier >= tier_duchy
+			}
+
+			if = {
+				limit = { exists = primary_heir }
+				primary_heir = {
+					trigger_event = { id = pop_deathbed_events.0001 }
+				}
+			}
+		}
+	}
+}

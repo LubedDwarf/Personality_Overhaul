@@ -1,0 +1,20 @@
+﻿pop_initialize_willpower_effect = {
+	if = {
+		limit = { not = { has_variable = pop_willpower_points } }
+		set_variable = { name = pop_willpower_points			   value = 3 }
+		set_variable = { name = pop_consecutive_trait_defiance	 value = 0 }
+		set_variable = { name = pop_personality_integrity_score	value = 100 }
+	}
+}
+
+pop_spend_willpower_point_callous = {
+	change_variable = { name = pop_willpower_points			   add = -1 }
+	change_variable = { name = pop_consecutive_trait_defiance	 add = 1 }
+	pop_evaluate_personality_evolution_callous_effect = yes
+}
+
+pop_spend_willpower_point_craven = {
+	change_variable = { name = pop_willpower_points			   add = -1 }
+	change_variable = { name = pop_consecutive_trait_defiance	 add = 1 }
+	pop_evaluate_personality_evolution_craven_effect = yes
+}

@@ -1,0 +1,56 @@
+﻿# =================================================================
+# POP MATRIX SYSTEM STAT MODIFIERS
+# =================================================================
+
+pop_rational_safety_modifier = {
+    ai_boldness = -15
+    ai_rationality = 20
+    stress_gain_mult = -0.1
+}
+
+pop_politically_paralyzed_modifier = {
+    vassal_opinion = -15
+    short_reign_relevance = 0.5
+    monthly_prestige = -1.0
+}
+
+pop_feud_blood_frenzy_modifier = {
+    ai_boldness = 30
+    intrigue = 2
+    prowess = 2
+}
+
+pop_secret_truce_shield_modifier = {
+    ai_compassion = 15
+    general_opinion = 10
+    scheme_resistance_mult = 0.2
+}
+
+pop_modifier_scheming_court = {
+	intrigue = 2
+	hostile_scheme_phase_duration_add = -15
+}
+
+pop_modifier_pious_court = {
+	learning = 2
+	monthly_piety_gain_mult = 0.10
+}
+
+pop_modifier_cruel_court = {
+	dread_gain_mult = 0.25
+	enemy_hostile_scheme_phase_duration_add = 15
+}
+
+pop_exposed_corruption_penalty = {
+	diplomacy = -2
+	vassal_opinion = -15
+}
+
+pop_agot_dragon_leverage_modifier = {
+	dread_gain_mult = 0.50
+	general_opinion = -10
+}
+
+pop_agot_nightswatch_restraint_modifier = {
+	short_reign_duration_mult = 0.25
+}

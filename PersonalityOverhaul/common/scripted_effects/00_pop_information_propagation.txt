@@ -1,0 +1,34 @@
+﻿pop_propagate_information_pulse = {
+	if = {
+		limit = {
+			exists = root
+			has_variable = pop_scandal_embezzlement_value
+		}
+
+		if = {
+			limit = {
+				not = { has_character_flag = pop_scandal_embezzlement_is_rumor }
+			}
+			# Fixed: Standardized flag settings to character flag blocks
+			add_character_flag = pop_scandal_embezzlement_is_rumor
+
+			if = {
+				limit = { exists = liege }
+				liege = { trigger_event = { id = pop_court_gossip.0001 } }
+			}
+		}
+
+		else_if = {
+			limit = {
+				has_character_flag = pop_scandal_embezzlement_is_rumor
+				not = { has_character_flag = pop_scandal_embezzlement_is_public }
+			}
+			add_character_flag = pop_scandal_embezzlement_is_public
+
+			add_character_modifier = {
+				modifier = pop_exposed_corruption_penalty
+				days = 365
+			}
+		}
+	}
+}

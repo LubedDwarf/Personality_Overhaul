@@ -1,0 +1,17 @@
+﻿pop_modify_leverage_recipient = {
+	if = {
+		limit = { exists = scope:recipient }
+
+		if = {
+			limit = { not = { has_variable = pop_leverage_over_recipient } }
+			set_variable = { name = pop_leverage_over_recipient value = 0 }
+		}
+
+		change_variable = {
+			name  = pop_leverage_over_recipient
+			add = $VALUE$
+		}
+		change_variable = { name = pop_leverage_over_recipient min = 0 }
+		change_variable = { name = pop_leverage_over_recipient max = 100 }
+	}
+}

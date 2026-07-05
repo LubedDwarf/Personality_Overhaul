@@ -1,0 +1,11 @@
+﻿# Runs once when the game starts, after all characters are created.
+pop_world_initialization_pulse = {
+	effect = {
+		every_living_character = {
+			limit = {
+				is_landed = yes
+			}
+			pop_initialize_willpower_effect = yes
+		}
+	}
+}

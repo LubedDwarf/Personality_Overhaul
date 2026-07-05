@@ -1,0 +1,50 @@
+﻿# Initialise a regency when a regent is appointed
+pop_initialize_regency_tokens = {
+	if = {
+		limit = { exists = $REGENT$ }
+
+		set_variable = { name = pop_regency_authority_tokens value = 5 }
+		set_variable = { name = pop_regency_suspicion		value = 0 }
+		set_variable = { name = pop_regency_grip_strength	value = 100 }
+
+		# Adjust authority based on regent traits
+		if = {
+			limit = { $REGENT$ = { has_trait = ambitious } }
+			change_variable = { name = pop_regency_authority_tokens add = 3 }
+		}
+		if = {
+			limit = { $REGENT$ = { has_trait = diligent } }
+			change_variable = { name = pop_regency_authority_tokens add = 3 }
+		}
+		if = {
+			limit = { $REGENT$ = { has_trait = content } }
+			change_variable = { name = pop_regency_authority_tokens add = -2 }
+		}
+		if = {
+			limit = { $REGENT$ = { has_trait = trusting } }
+			change_variable = { name = pop_regency_authority_tokens add = -2 }
+		}
+	}
+}
+
+# 6‑month decay pulse for an adult regency
+pop_evaluate_regency_decay_pulse = {
+	if = {
+		limit = {
+			has_variable = pop_regency_authority_tokens
+			age >= 16
+		}
+
+		change_variable = {
+			name = pop_regency_grip_strength
+			add = -10
+		}
+
+		if = {
+			limit = {
+				has_variable = pop_regency_grip_strength
+			}
+			trigger_event = { id = pop_regency_events.0002 }
+		}
+	}
+}

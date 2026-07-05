@@ -1,0 +1,13 @@
+﻿# =================================================================
+# CUSTOM POP MATRIX INTERACTION CATEGORIES
+# =================================================================
+
+interaction_category_pop_governance = {
+    desc = interaction_category_pop_governance_desc
+    order = 55
+}
+
+interaction_category_pop_intrigue = {
+    desc = interaction_category_pop_intrigue_desc
+    order = 56
+}

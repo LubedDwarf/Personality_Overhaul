@@ -1,0 +1,44 @@
+﻿pop_hijack_council_mandate_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_hijack_council_mandate_interaction_desc
+
+	# ------------------------------------------------------------------
+	# When the interaction is shown in the UI
+	# ------------------------------------------------------------------
+	is_shown = {
+		scope:recipient = { is_passive_personality_trigger = yes } # target must be passive / AGOT‑compatible
+	}
+
+	# ------------------------------------------------------------------
+	# When the interaction is actually usable
+	# ------------------------------------------------------------------
+	is_valid = {
+		scope:recipient = {
+			is_alive = yes
+			target_is_liege_or_above = scope:actor					 # recipient must be liege or higher
+		}
+		# leverage must be ≥ 40
+		has_variable = pop_leverage_over_recipient
+	}
+
+	# ------------------------------------------------------------------
+	# Effects when the player clicks "Accept"
+	# ------------------------------------------------------------------
+	on_accept = {
+		scope:recipient = {
+			change_variable = {
+				name = pop_regency_authority_tokens
+				add = -2
+			}
+			pop_record_humiliation_memory_on_recipient = yes
+		}
+
+		root = {
+			change_variable = {
+				name = pop_councilor_leverage_tokens
+				add = 2
+			}
+			trigger_event = { id = pop_small_council_events.0001 }
+		}
+	}
+}

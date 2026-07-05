@@ -1,0 +1,29 @@
+﻿pop_record_humiliation_memory_on_recipient = {
+	if = {
+		limit = { exists = scope:recipient }
+
+		scope:recipient = {
+			if = {
+				limit = { not = { has_variable = pop_memory_sequence_index } }
+				set_variable = { name = pop_memory_sequence_index value = 1 }
+			}
+
+			set_variable = { name = pop_mem_humiliated_source	value = root }
+			set_variable = { name = pop_mem_humiliated_severity value = 1 }
+			set_variable = { name = pop_mem_humiliated_timestamp value = current_day }
+
+			change_variable = { name = pop_memory_sequence_index add = 1 }
+		}
+	}
+}
+
+pop_record_confrontation_memory_on_root = {
+	if = {
+		limit = { exists = root }
+
+		set_variable = { name = pop_mem_confronted_source	value = scope:recipient }
+		set_variable = { name = pop_mem_confronted_severity value = 2 }
+		set_variable = { name = pop_mem_confronted_timestamp value = current_day }
+		add_character_flag = pop_mem_confronted_is_public
+	}
+}

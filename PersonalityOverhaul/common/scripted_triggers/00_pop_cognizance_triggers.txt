@@ -1,0 +1,22 @@
+﻿pop_is_under_full_cradle_suppression = {
+	custom_description = {
+		text = "pop_cradle_suppression_tier_1_tooltip"
+		subject = root
+
+		is_ai = no
+		has_variable = pop_willpower_points
+		age <= 5
+	}
+}
+
+pop_is_under_governance_suppression = {
+	custom_description = {
+		text = "pop_cradle_suppression_tier_2_tooltip"
+		subject = root
+
+		is_ai = no
+		has_variable = pop_willpower_points
+		age > 5
+		age <= 12
+	}
+}

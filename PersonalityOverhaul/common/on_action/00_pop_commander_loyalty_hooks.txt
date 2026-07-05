@@ -1,0 +1,34 @@
+﻿pop_commander_loyalty_evaluation_pulse = {
+	effect = {
+		every_living_character = {
+			limit = {
+				is_landed = yes
+				is_commanding_army = yes
+			}
+			if = {
+				limit = {
+					has_trait = ambitious
+					liege = { has_trait = craven }
+				}
+				if = {
+					limit = { not = { has_variable = pop_commander_defection_risk } }
+					set_variable = { name = pop_commander_defection_risk value = 0 }
+				}
+				if = {
+					limit = { liege = { gold < 0 } }
+					change_variable = { name = pop_commander_defection_risk add = 15 }
+				}
+				else = {
+					change_variable = { name = pop_commander_defection_risk add = 5 }
+				}
+			}
+			if = {
+				limit = {
+					has_variable = pop_commander_defection_risk
+					not = { has_character_flag = pop_issued_ultimatum }
+				}
+				trigger_event = { id = pop_commander_events.0001 }
+			}
+		}
+	}
+}

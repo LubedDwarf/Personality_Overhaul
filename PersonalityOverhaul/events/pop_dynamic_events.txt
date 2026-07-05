@@ -1,0 +1,291 @@
+﻿namespace = pop_dynamic_events
+
+# 1001: SHARED UNDERTAKING RESOLUTION
+pop_dynamic_events.1001 = {
+    type = character_event
+    title = pop_dynamic_events.1001.t
+    desc = pop_dynamic_events.1001.d
+    theme = diplomacy
+    left_portrait = root
+    right_portrait = scope:enterprise_initiator
+    
+    option = {
+        name = pop_dynamic_events.1001.a
+        trigger = { scope:enterprise_initiator.pop_compassionate_score > 15 }
+        add_opinion = { target = scope:enterprise_initiator value = 25 }
+        remove_stress = 20
+        scope:enterprise_initiator = { remove_stress = 20 }
+    }
+    option = {
+        name = pop_dynamic_events.1001.b
+        trigger = { scope:enterprise_initiator.pop_cunning_score > 20 }
+        scope:enterprise_initiator = { pop_modify_leverage = { TARGET = root CHANGE = 25 } }
+        add_prestige = -50
+        add_stress = 15
+    }
+    option = {
+        name = pop_dynamic_events.1001.c
+        trigger = { scope:enterprise_initiator.pop_dutiful_score > 15 }
+        add_gold = 100
+        scope:enterprise_initiator = { add_gold = -100 }
+    }
+}
+
+# 2001: PRIVATE PACT
+pop_dynamic_events.2001 = {
+    type = character_event
+    title = pop_dynamic_events.2001.t
+    desc = pop_dynamic_events.2001.d
+    theme = diplomacy
+    left_portrait = root
+    right_portrait = scope:pact_offerer
+
+    option = {
+        name = pop_dynamic_events.2001.a
+        trigger = { root.pop_devoted_score > 15 }
+        add_prestige = 75
+        scope:pact_offerer = { add_alliance = root }
+    }
+    option = {
+        name = pop_dynamic_events.2001.b
+        trigger = { root.pop_wary_score > 15 }
+        add_character_modifier = { modifier = pop_rational_safety_modifier years = 5 }
+        scope:pact_offerer = { add_alliance = root }
+    }
+}
+
+# 3001: APPRAISE PEER
+pop_dynamic_events.3001 = {
+    type = character_event
+    title = pop_dynamic_events.3001.t
+    desc = pop_dynamic_events.3001.d
+    theme = court
+    left_portrait = root
+    right_portrait = scope:court_appraiser
+
+    option = {
+        name = pop_dynamic_events.3001.a
+        trigger = { root.pop_resolute_score > 20 }
+        change_variable = { name = pop_willpower_points value = 1 }
+        remove_stress = 30
+    }
+    option = {
+        name = pop_dynamic_events.3001.b
+        trigger = { root.pop_devoted_score > 20 }
+        scope:court_appraiser = {
+            pop_record_historic_memory = { VICTIM = scope:court_appraiser TYPE = memory_confronted SEVERITY = 2 PUBLIC = yes }
+        }
+        add_stress = 20
+    }
+}
+
+# 4001: PROXY TAKEOVER
+pop_dynamic_events.4001 = {
+    type = character_event
+    title = pop_dynamic_events.4001.t
+    desc = pop_dynamic_events.4001.d
+    theme = intrigue
+    left_portrait = root
+    right_portrait = scope:shadow_master
+
+    option = {
+        name = pop_dynamic_events.4001.a
+        scope:shadow_master = {
+            change_variable = { name = pop_leverage_over_root value = -45 }
+            change_variable = { name = pop_councilor_leverage_tokens value = 4 }
+        }
+        add_character_modifier = { modifier = pop_politically_paralyzed_modifier years = 5 }
+    }
+}
+
+# 5001: RECIPROCAL OBLIGATION
+pop_dynamic_events.5001 = {
+    type = character_event
+    title = pop_dynamic_events.5001.t
+    desc = pop_dynamic_events.5001.d
+    theme = diplomacy
+    left_portrait = root
+    right_portrait = scope:obligation_proposer
+
+    option = {
+        name = pop_dynamic_events.5001.a
+        trigger = {
+            custom_description = {
+                text = "pop_willpower_gated_by_erratic_nature_tooltip"
+                not = {
+                    root = { pop_erratic_score > 40 }
+                    not = { root = { has_variable = pop_willpower_points check_variable = { name = pop_willpower_points value >= 3 } } }
+                }
+            }
+        }
+        ai_chance = {
+            base = 0
+            modifier = { add = root.pop_dutiful_score }
+            modifier = { add = root.pop_devoted_score }
+        }
+        if = {
+            limit = { root.pop_erratic_score > 40 }
+            change_variable = { name = pop_willpower_points value = -2 }
+            add_stress = 60
+        }
+        remove_stress = 15
+        scope:obligation_proposer = { add_prestige = 50 }
+    }
+    option = {
+        name = pop_dynamic_events.5001.b
+        ai_chance = {
+            base = 10
+            modifier = { add = root.pop_cunning_score }
+            modifier = { add = root.pop_resolute_score }
+        }
+        scope:obligation_proposer = { pop_modify_leverage = { TARGET = root CHANGE = 30 } }
+        add_stress = 25
+    }
+    option = {
+        name = pop_dynamic_events.5001.c
+        ai_chance = {
+            base = 20
+            modifier = { add = root.pop_compassionate_score }
+            modifier = { add = root.pop_sociable_score }
+        }
+        remove_stress = 35
+        scope:obligation_proposer = { remove_stress = 35 add_opinion = { target = root value = 30 } }
+        add_opinion = { target = scope:obligation_proposer value = 30 }
+    }
+    option = {
+        name = pop_dynamic_events.5001.d
+        trigger = { root.pop_timid_score > 25 }
+        ai_chance = { base = 100 }
+        change_variable = { name = pop_willpower_points value = -1 }
+        scope:obligation_proposer = { pop_modify_leverage = { TARGET = root CHANGE = 40 } }
+        add_stress = 10
+    }
+    option = {
+        name = pop_dynamic_events.5001.e
+        trigger = { or = { root.pop_erratic_score > 25 scope:obligation_proposer.pop_erratic_score > 25 } }
+        ai_chance = { base = 150 }
+        add_stress = 40
+    }
+}
+
+# 6001: CONFIDE VULNERABILITY
+pop_dynamic_events.6001 = {
+    type = character_event
+    title = pop_dynamic_events.6001.t
+    desc = pop_dynamic_events.6001.d
+    theme = family
+    left_portrait = root
+    right_portrait = scope:vulnerability_sharer
+
+    option = {
+        name = pop_dynamic_events.6001.a
+        ai_chance = {
+            base = 10
+            modifier = { add = root.pop_compassionate_score }
+            modifier = { add = root.pop_sociable_score }
+        }
+        scope:vulnerability_sharer = { remove_stress = 40 }
+        remove_stress = 15
+    }
+    option = {
+        name = pop_dynamic_events.6001.b
+        ai_chance = {
+            base = 0
+            modifier = { add = root.pop_cunning_score }
+            modifier = { subtract = root.pop_compassionate_score }
+        }
+        pop_modify_leverage = { TARGET = scope:vulnerability_sharer CHANGE = 30 }
+        scope:vulnerability_sharer = { remove_stress = 15 }
+    }
+}
+
+# 7001: CONFRONT FRICTION
+pop_dynamic_events.7001 = {
+    type = character_event
+    title = pop_dynamic_events.7001.t
+    desc = pop_dynamic_events.7001.d
+    theme = diplomacy
+    left_portrait = root
+    right_portrait = scope:friction_confronter
+
+    option = {
+        name = pop_dynamic_events.7001.a
+        ai_chance = {
+            base = 10
+            modifier = { add = root.pop_dutiful_score }
+            modifier = { add = root.pop_compassionate_score }
+        }
+        remove_relation_rival = scope:friction_confronter
+        scope:friction_confronter = { remove_relation_rival = root }
+    }
+    option = {
+        name = pop_dynamic_events.7001.b
+        ai_chance = {
+            base = 15
+            modifier = { add = root.pop_resolute_score }
+        }
+        change_variable = { name = pop_willpower_points value = -1 }
+        add_stress = 20
+    }
+}
+
+# 8001: COORDINATE BLOOD STRIKE
+pop_dynamic_events.8001 = {
+    type = character_event
+    title = pop_dynamic_events.8001.t
+    desc = pop_dynamic_events.8001.d
+    theme = intrigue
+    left_portrait = root
+    right_portrait = scope:strike_instigator
+
+    option = {
+        name = pop_dynamic_events.8001.a
+        ai_chance = {
+            base = 10
+            modifier = { add = root.pop_resolute_score }
+            modifier = { add = root.pop_cunning_score }
+        }
+        add_character_modifier = { modifier = pop_feud_blood_frenzy_modifier years = 5 }
+        scope:strike_instigator = { add_character_modifier = { modifier = pop_feud_blood_frenzy_modifier years = 5 } }
+    }
+    option = {
+        name = pop_dynamic_events.8001.b
+        ai_chance = {
+            base = 10
+            modifier = { add = root.pop_compassionate_score }
+            modifier = { add = root.pop_dutiful_score }
+        }
+        add_stress = 15
+        scope:strike_instigator = { add_stress = 30 }
+    }
+}
+
+# 9001: SECRET BLOOD TRUCE
+pop_dynamic_events.9001 = {
+    type = character_event
+    title = pop_dynamic_events.9001.t
+    desc = pop_dynamic_events.9001.d
+    theme = diplomacy
+    left_portrait = root
+    right_portrait = scope:truce_seeker
+
+    option = {
+        name = pop_dynamic_events.9001.a
+        ai_chance = {
+            base = 15
+            modifier = { add = root.pop_wary_score }
+            modifier = { add = root.pop_timid_score }
+        }
+        add_character_modifier = { modifier = pop_secret_truce_shield_modifier years = 10 }
+        scope:truce_seeker = { add_character_modifier = { modifier = pop_secret_truce_shield_modifier years = 10 } }
+    }
+    option = {
+        name = pop_dynamic_events.9001.b
+        ai_chance = {
+            base = 5
+            modifier = { add = root.pop_devoted_score }
+            modifier = { add = root.pop_resolute_score }
+        }
+        scope:truce_seeker = { add_stress = 50 }
+    }
+}

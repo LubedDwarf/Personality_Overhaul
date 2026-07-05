@@ -1,0 +1,36 @@
+﻿pop_plant_false_ledger_interaction = {
+	category = interaction_category_pop_intrigue
+	desc = pop_plant_false_ledger_interaction_desc
+
+	is_shown = {
+		scope:actor = { has_trait = deceitful }
+	}
+
+	is_valid = {
+		scope:recipient = {
+			is_alive = yes
+			OR = {
+				is_vassal_of = scope:actor
+				is_courtier_of = scope:actor
+			}
+		}
+	}
+
+	on_accept = {
+		pop_fabricate_persistent_lie = yes		  # run the persistent‑lie effect
+
+		scope:recipient = {
+			if = {
+				limit = { has_trait = paranoid }
+				trigger_event = { id = pop_court_gossip.0002 }
+			}
+			else_if = {
+				limit = { has_trait = trusting }
+				set_variable = {
+					name = pop_lie_type_crime_poison_credibility
+					value = 20
+				}
+			}
+		}
+	}
+}

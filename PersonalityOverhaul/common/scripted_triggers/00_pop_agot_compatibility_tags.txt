@@ -1,0 +1,54 @@
+﻿# Injects custom AGOT personality traits into our baseline "Weak-Willed / Passive" group profile
+# This automatically subjects these characters to Feature 2 (Court Room Bullying) and Feature 9 (Cradle Regency)
+is_passive_personality_trigger = {
+	or = {
+		# Core Mod Baseline Traits
+		has_trait = craven
+		has_trait = shy
+		has_trait = trusting
+		has_trait = content
+
+		# AGOT Specific Modular Trait Injections (commented out for vanilla)
+		#has_trait = giant_dimwitted
+		#has_trait = weak_willed
+		#has_trait = nightswatch_resigned
+
+		# Contextual House Trait Fallbacks (commented out for vanilla)
+		#and = {
+		#	has_trait = maester
+		#	not = { has_trait = ambitious }
+		#}
+	}
+}
+
+# Injects AGOT's dominating and predatory traits into our "Predatory Archetype"
+pop_is_predatory_archetype = {
+	or = {
+		# Core Mod Baseline Traits
+		has_trait = brave
+		has_trait = wrathful
+		has_trait = sadistic
+		has_trait = arrogant
+
+		# AGOT Specific Modular Trait Injections (commented out for vanilla)
+		#has_trait = dragonrider
+		#has_trait = ruthless
+		#has_trait = formidable_fighter
+		#has_trait = fire_blood
+	}
+}
+
+# Injects AGOT's political and sneaky traits into our "Manipulative Archetype"
+pop_is_manipulative_archetype = {
+	or = {
+		# Core Mod Baseline Traits
+		has_trait = deceitful
+		has_trait = paranoid
+		has_trait = greedy
+
+		# AGOT Specific Modular Trait Injections (commented out for vanilla)
+		#has_trait = spymaster_trained
+		#has_trait = master_of_whispers
+		#has_trait = greenseer
+	}
+}

@@ -1,0 +1,4 @@
+﻿l_english:
+ pop_trial_events.0001.t: "Trial Abandoned"
+ pop_trial_events.0001.d: "You abandon the trial in a panic."
+ pop_trial_events.0001.a: "Flee"

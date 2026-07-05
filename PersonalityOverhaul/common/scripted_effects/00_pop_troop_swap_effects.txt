@@ -1,0 +1,2 @@
+﻿# AGOT-specific: troop swap is not available in vanilla CK3
+pop_execute_maa_preserving_troop_swap = { }

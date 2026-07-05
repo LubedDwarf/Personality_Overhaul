@@ -1,0 +1,2 @@
+﻿# Reserved for future small‑council interactions.
+# The hijack interaction now lives in 00_pop_hijack_council_mandate_interaction.txt

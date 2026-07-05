@@ -1,0 +1,4 @@
+﻿namespace = pop_cradle_events
+
+pop_cradle_events.0001 = { type = character_event title = pop_stub_title desc = pop_stub_desc option = { name = pop_stub_ok } }
+pop_cradle_events.0002 = { type = character_event title = pop_stub_title desc = pop_stub_desc option = { name = pop_stub_ok } }
